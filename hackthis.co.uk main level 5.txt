@@ -1,0 +1,19 @@
+Another chapter in the HackThis! series, featuring Main Level 5 today.
+
+Our hint is:
+
+Slightly more complicated JavaScript this time, but just as insecure.
+
+Refresh to try again.
+
+Note that we can obtain this by simply inserting any password, or clicking “Cancel”, when the first password prompt pops up.
+
+Again, we look into the source code to find hints. We hit Ctrl + F and browse for “javascript”, since our only hint is telling us that JavaScript is still being used. This is what we find, from line 849 onwards:
+
+1.	var pass;
+2.	pass=prompt("Password","");
+3.	if (pass=="9286jas") {
+4.      	  window.location.href="/levels/main/5?pass=9286jas";
+5.	}
+
+There goes our solution. We refresh the page, input the password, and pass the level.

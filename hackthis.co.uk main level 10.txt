@@ -1,0 +1,38 @@
+At long last, we reach the final chapter of the first round of the HackThis! series, featuring Main Level 10. This is the last of the Main levels. Starting next week, we will be looking into the Basic+ levels.
+
+As usual, we start by reading the hint:
+
+Encrypted passwords can be quite difficult to decode, but when you use a common method there is usually a way to get around it. Especially when the encrypted information are simple common words.
+
+This implies that the password must be somewhere on the page. Once again, we find it by examining the source code which, from line 850 onwards, reads:
+
+<label for="user">Username:</label>
+<input type="Text" name="user" id="user" autocomplete="off"><br>
+<label for="user">Password:</label>
+<input type="Password" name="pass" id="pass" autocomplete="off"><br>
+<input type="hidden" name="passwordfile" value="level10pass.txt">
+<input type="submit" value="Submit" class="button">
+We have seen this “stratagem” in a number of other occasions. The path to the password files is in the /extras/ folder. So, we navigate to https://www.hackthis.co.uk/levels/extras/level10pass.txt and read:
+
+69bfe1e6e44821df7f8a0927bd7e61ef208fdb25deaa4353450bc3fb904abd52:f1abe1b083d12d181ae136cfc75b8d18a8ecb43ac4e9d1a36d6a9c75b6016b61
+
+If you see an alphanumeric string, and know that it is an encrypted password, it will be a hash in the most likely case. Commonly used hashing algorithms for passwords include MD5, SHA-1, and SHA-2. SHA-2 is the strongest of the three, and the hardest to crack; MD5 and SHA-1 have both been cracked (you can check the Wikipedia links for more details, if you are curious).
+
+You may also have noticed that there is a colon that separates the two character groups. Colons do not appear in hashes, which means we actually have two hashes. This should not be surprising, as we need both a username and a password to complete the level.
+
+As we do not know which hashing algorithm has been used, we may either attempt to bruteforce hash by hash, count the bits and try to guess the algorithm, or take the easy way out and use CrackStation. You can input any unsalted hash in this website and, if it is both supported and present in the database – which is a publicly available, 15GB file worth of words – it will output the crack.
+
+In this case, by inputting:
+
+69bfe1e6e44821df7f8a0927bd7e61ef208fdb25deaa4353450bc3fb904abd52
+f1abe1b083d12d181ae136cfc75b8d18a8ecb43ac4e9d1a36d6a9c75b6016b61
+
+The output is:
+
+carl
+guess
+
+And we find out that they are both SHA-256 hashes, which is a variant of SHA-2.
+We input them as our credentials, and the level is now done.
+
+I hope you enjoyed the first part of this series. I tried to adjust my speech level as much as possible, in order to present the topics in an understandable manner for novices, without delving into unnecessarily complicated technical language, yet trying to not state what I deemed obvious to avoid sounding wordy. It is a difficult balance to maintain, and I hope I have succeeded at this task. If there is anything you would like to see changed in the next part of the series, the Basic+ solutions, please let me know.

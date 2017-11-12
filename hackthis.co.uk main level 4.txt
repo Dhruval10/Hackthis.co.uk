@@ -1,0 +1,24 @@
+Again, it is the HackThis! series, and as expected we will be looking into the solution of Main Level 4 today.
+
+This time, the given hint is:
+
+Sometimes extra hidden fields are added to the form which contains extra information for the login script. Again this is very easy for anyone to gain access to as it is clearly shown in the source code.
+
+Sometimes these fields can contain very important information.
+
+It clearly says to take a look at the source code, which we would have done anyway. As an additional hint, it also tells us to look for “hidden fields”. If we Ctrl + F our way to the word ‘hidden’, we find the following snippet at line 869:
+
+1.	input type="hidden"
+2.	name="passwordfile"
+3.	value="../../extras/ssap.xml"
+
+
+What do the dots mean? That we need to go up the directory structure, in this case twice, as they appear twice before /extras/. Since our current path is hackthis.co.uk/levels/main/4, we go back to hackthis.co.uk/levels/ and then add /extras/ssap.xml. Browsing to hackthis.co.uk/levels/extras/ssap.xml gives us the following XML document:
+
+1.	<user>
+2.	<name>Admin</name>
+3.	<username>999</username>
+4.	<password>911</password>
+5.	</user>
+
+From here, the answer to the level should be clear enough.

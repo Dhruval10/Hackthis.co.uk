@@ -1,0 +1,33 @@
+Yet another follow up of the HackThis! series, this time it is Main Level 8.
+
+The hint says:
+
+The coder has made the same mistake as level 4 but this time at least he has tried to protect the password. The password has been encrypted, convert the binary into something that is easier for humans to read (base 16).
+
+If you think you have the right answer but it isn't being accepted, submit your answer in CAPITALS.
+
+Many of these levels, including 4, are solvable by analysing the source code of the page. In this case, that is exactly what we do, once again. This is what we find from line 850 onwards, using our usual Ctrl + F stratagem for keywords like “pass” or “password”:
+
+1
+2
+3
+4
+5
+6
+<label for="user">Username:</label>
+<input type="Text" name="user" id="user" autocomplete="off"><br>
+<label for="user">Password:</label>
+<input type="Password" name="pass" id="pass" autocomplete="off"><br>
+<input type="hidden" name="passwordfile" value="extras/secret.txt">
+<input type="submit" value="Submit" class="button">
+The hidden input field reveals where the password file is. We therefore navigate to https://www.hackthis.co.uk/levels/extras/secret.txt, which reads:
+
+1011 0000 0000 1011
+1111 1110 1110 1101
+
+The hint says this is base 16, so we use any converter to base 16 (hexadecimal, often shortened to “hex”) to translate the message. It now reads:
+
+B00B
+FEED
+
+We use these as username and password to pass the level.

@@ -1,0 +1,19 @@
+As a newbie in the hacking world, I figured I would pick somewhere to start practicing and having fun with. My eyes were then set on HackThis!, which I made a point of eventually completing.
+
+As I go through the challenges, I will be giving explanations and solutions – with screenshots, if needed – about the challenge levels.
+
+The Main Level 1 is very simple. Many of the early levels of this game also have hints. Let’s check out the hint for this one.
+
+Having trouble? Need a little help? Well this is the first level so that is to be expected. The first stop is always to view the source of a page.
+
+This must mean the data we are looking for is hidden somewhere in the source code. That can only be a hidden field or a comment, so my suggestion is to hit Ctrl + F and browse for:
+
+<!--
+
+Which is how HTML comments are opened.
+
+This is what we find at line 28 of the source:
+
+1
+<!-- username: in, password: out -->
+And that is our solution.

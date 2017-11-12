@@ -1,0 +1,18 @@
+One more chapter in the HackThis! series, this time looking at Main Level 3. As per usual, we start by checking out the hint provided on the website.
+
+Using JavaScript as the only method to secure your site is a bad idea, but this has obviously been over looked while coding this page.
+
+JavaScript code is, predictably, denoted by the eponymous keyword in the source code of a web page. So, once again, we take a look at the source code and browse for “javascript” in it.
+After going down a couple results, at line 53, we notice this:
+
+1.	<script type='text/javascript'>
+2.	$(function(){ $('.level-form').submit(function(e)
+3.	{ if(document.getElementById('user').value == 'heaven' &&
+4.	document.getElementById('pass').value == 'hell') { }
+5.	else
+6.	{ e.preventDefault(); alert('Incorrect login') } })})
+7.	</script>
+
+Now I am no JavaScript wizard – in fact, I cannot write JavaScript code – but I can read it, thanks to my programming background and my exercise with Java and C, as well as some PHP. If you know any one given programming language, understanding its relatives should not be too difficult for you. In the case of scripting languages, my own personal opinion is that an object-oriented background helps with learning them, but your mileage may vary.
+
+Either way, this is a JavaScript function, and it is definitely the one that controls the login. From the parameters, it is pretty clear it will only correctly authenticate a user called ‘heaven’ with the password ‘hell’. We therefore input these two, and move on to the next level.

@@ -1,0 +1,24 @@
+Following with the HackThis! solutions discussion, we will be looking at Main Level 2 today.
+
+Again, let’s check the hint:
+
+Just expanding on the idea of Level 1. The best place to start is always the source code.
+
+Or maybe the answer is right under your nose?!
+
+So the source code is once again where we should start. The relevant lines, from 850 to 853 included, display:
+
+1
+2
+3
+4
+.
+.
+.
+.
+.
+<label for="user">Username:</label> <span style="color: #000000">resu</span>
+<input type="Text" name="user" id="user" autocomplete="off"><br>
+<label for="user">Password:</label> <span style="color: #000000">ssap</span>
+<input type="Password" name="pass" id="pass" autocomplete="off"><br>
+We would, in fact, see the username and password even by simply highlighting the page

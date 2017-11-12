@@ -1,0 +1,26 @@
+We proceed with another chapter in the HackThis! series, looking into the solution of Main Level 9.
+
+The hint reads:
+
+The developer has now added a feature that allows him to get a password reminder. Can you exploit it to send you the login details instead?
+
+We click on the “Request details” first, just to see what happens. This takes us to another page, where we can input an email address to get a reminder of the password. However, every given mail we seem to input triggers the “Incorrect email address” warning.
+
+So we look at the source code:
+
+<label for="email1">Email:</label>
+<input type="text" name="email1" id="email1" autocomplete="off"><br>
+<input type="hidden" name="email2" id="email2" value="admin@hackthis.co.uk"
+     autocomplete="off">
+<input type="submit" value="Submit" class="button">
+Inputting the email admin@hackthis.co.uk will work, of course, but then the password reminder will not be sent to us.
+
+We need to somehow have the password reminder sent to our email address. To do this, we must “fool” the system into believing that we are submitting the “right” address even when the address is not the site admin’s. This can be done by using a tool we have looked into before, known as BurpSuite.
+
+We turn on the Intercept button in the Proxy tab when we are on the page where the input email is sent, then type (or paste) the admin’s email and hit “Submit”. The traffic, routed through BurpSuite, will show as follows:
+
+The BurpSuite interception
+
+From this, we can deduce that the most likely check performed on the input email is whether or not it corresponds with the stored email. As such, editing both – and inputting our own email in both fields – should work.
+
+In fact, it does. It will not send you the password via email, but simply changing the email1 and email2 parameters to another email and then hitting “Forward” will award you a pass.
