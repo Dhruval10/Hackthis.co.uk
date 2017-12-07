@@ -6,14 +6,12 @@ This page is coded to only let in one user (Ronald). But there is no Ronald?! Yo
 
 While we may still check the source code, it will not help much this time; Ronald is not on the list, and we need him to be.
 
-How can we add him? A simple option – though untested, as I used the method outlined below – is to save the web page locally, and then edit the list part and add “Ronald” among the options.
+How can we add him? A simple option â€“ though untested, as I used the method outlined below â€“ is to save the web page locally, and then edit the list part and add â€œRonaldâ€ among the options.
 
 Another way of doing so is intercepting the traffic sent to the website. I have previously outlined, in this blog post, how to configure WebGoat with IceWeasel and intercept the traffic through BurpSuite. Skipping the WebGoat part, the walkthrough still applies to configure IceWeasel alone, so you can do that if you have no configured proxy yet.
 
-Then, we open BurpSuite and start intercepting the traffic on the Main Level 6 page. Click “Submit” with any username selected. If your settings are correct, you should see this onscreen:
+Then, we open BurpSuite and start intercepting the traffic on the Main Level 6 page. Click â€œSubmitâ€ with any username selected. If your settings are correct, you should see this onscreen:
 
 BurpSuite screen
 
-As you can tell, I used John. Now what we need to do is manually change the “user” parameter to “Roland”. To do this, simply type “Roland” in.
-
-After that, hit the “Forward” button on the BurpSuite menu. This will award you a pass.
+As you can tell, I used John. Now what we need to do is manually change the â€œuserâ€ parameter to â€œRolandâ€. To do this, simply type â€œRolandâ€ in.After that, hit the â€œForwardâ€ button on the BurpSuite menu. This will award you a pass.
