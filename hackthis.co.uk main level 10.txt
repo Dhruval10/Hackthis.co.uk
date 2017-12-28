@@ -8,11 +8,11 @@ This implies that the password must be somewhere on the page. Once again, we fin
 
 <label for="user">Username:</label>
 <input type="Text" name="user" id="user" autocomplete="off"><br>
-<label for="user">Password:</label>
+<label for="user"> Password: </label>
 <input type="Password" name="pass" id="pass" autocomplete="off"><br>
 <input type="hidden" name="passwordfile" value="level10pass.txt">
 <input type="submit" value="Submit" class="button">
-We have seen this ìstratagemî in a number of other occasions. The path to the password files is in the /extras/ folder. So, we navigate to https://www.hackthis.co.uk/levels/extras/level10pass.txt and read:
+We have seen this ‚Äústratagem‚Äù in a number of other occasions. The path to the password files is in the /extras/ folder. So, we navigate to https://www.hackthis.co.uk/levels/extras/level10pass.txt and read:
 
 69bfe1e6e44821df7f8a0927bd7e61ef208fdb25deaa4353450bc3fb904abd52:f1abe1b083d12d181ae136cfc75b8d18a8ecb43ac4e9d1a36d6a9c75b6016b61
 
@@ -20,7 +20,7 @@ If you see an alphanumeric string, and know that it is an encrypted password, it
 
 You may also have noticed that there is a colon that separates the two character groups. Colons do not appear in hashes, which means we actually have two hashes. This should not be surprising, as we need both a username and a password to complete the level.
 
-As we do not know which hashing algorithm has been used, we may either attempt to bruteforce hash by hash, count the bits and try to guess the algorithm, or take the easy way out and use CrackStation. You can input any unsalted hash in this website and, if it is both supported and present in the database ñ which is a publicly available, 15GB file worth of words ñ it will output the crack.
+As we do not know which hashing algorithm has been used, we may either attempt to bruteforce hash by hash, count the bits and try to guess the algorithm, or take the easy way out and use CrackStation. You can input any unsalted hash in this website and, if it is both supported and present in the database ‚Äì which is a publicly available, 15GB file worth of words ‚Äì it will output the crack.
 
 In this case, by inputting:
 
